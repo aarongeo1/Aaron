@@ -1,0 +1,39 @@
+/* TimelineSection Custom Styles */
+.react-vertical-timeline-component .vertical-timeline-element--work .vertical-timeline-element-content {
+    background: #fff; /* Light background for a cleaner look */
+    color: #333; /* Dark text for contrast */
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+  }
+  
+  .react-vertical-timeline-component .vertical-timeline-element--work .vertical-timeline-element-content-arrow {
+    border-right: 7px solid #fff; /* Match the arrow with the element background */
+  }
+  
+  .react-vertical-timeline-component .vertical-timeline-element-icon {
+    background: #007bff; /* Slightly more vibrant blue for the icon background */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4); /* Enhance the icon's shadow */
+  }
+  
+  /* Titles and subtitles with better spacing and weight */
+  .react-vertical-timeline-component .vertical-timeline-element-title,
+  .react-vertical-timeline-component .vertical-timeline-element-subtitle {
+    margin: 0;
+    padding: 4px 0;
+    font-weight: bold;
+  }
+  
+  /* Date label with a more subtle appearance */
+  .react-vertical-timeline-component .vertical-timeline-element-date {
+    opacity: 0.7;
+    font-size: 0.85em;
+  }
+  
+  /* Ensure the content has padding to breathe on smaller screens */
+  @media (max-width: 1170px) {
+    .react-vertical-timeline-component .vertical-timeline-element-content {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+  

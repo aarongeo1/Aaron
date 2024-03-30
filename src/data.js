@@ -25,7 +25,7 @@ export const Projects = [
         id: 3,
         name: "BulkBarter",
         imageSrc: work7,
-        techs: "Python",
+        techs: "JavaScript, React, HTML, CSS",
         github: "https://github.com/sankalpsaini/bulkbarter",
     },
     {
