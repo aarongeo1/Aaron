@@ -1,93 +1,148 @@
-import React from 'react';
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import React, { useState } from 'react';
+import { Container, Typography, Button, Grid, Paper, List, ListItem, ListItemText, useTheme, useMediaQuery } from '@mui/material';
 import { IoCodeWorking } from 'react-icons/io5';
-import { Typography, Container } from '@mui/material';
-import Fade from 'react-reveal/Fade';
+import { Fade, Zoom } from 'react-reveal';
+
+const experiences = [
+  {
+    id: 1,
+    title: "Computer Engineer Intern",
+    subtitle: "Castle Rock Research Corporation",
+    date: "January 2024 - present",
+    description: [
+      "Create a custom GPT model and integrate OpenAI's GPT API into Solaro's platform, leveraging Python and Flask.",
+      "Conduct extensive testing, debugging, and optimization to enhance the chat tutor responses.",
+      "Implement an AI-driven chat tutor, significantly aiding students with personalized academic support."
+    ],
+    icon: <IoCodeWorking />,
+  },
+  {
+    id: 2,
+    title: "Teaching Assistant",
+    subtitle: "University Of Alberta",
+    date: "September 2023 - January 2024",
+    description: [
+      "Assist in grading CMPUT 291 coursework, ensuring fair and timely evaluation of assignments.",
+      "Provide comprehensive academic support to students.",
+      "Assist in the development and enhancement of course materials."
+    ],
+    icon: <IoCodeWorking />,
+  },
+  {
+    id: 3,
+    title: "Full Stack Intern",
+    subtitle: "Cove",
+    date: "May 2023 - August 2023",
+    description: [
+      "Develop and maintain front-end and back-end features of Cove's web and mobile applications.",
+      "Collaborate with cross-functional teams to ensure seamless user experiences and application performance.",
+      "Write clean, efficient, and well-documented code adhering to industry standards and best practices.",
+      "Identify and troubleshoot bugs, performance bottlenecks, and technical issues.",
+      "Continuously learn and stay up-to-date with the latest technologies and frameworks."
+    ],
+    icon: <IoCodeWorking />,
+  },
+  {
+    id: 4,
+    title: "BSc Computer Science",
+    subtitle: "University Of Alberta",
+    date: "September 2021 - present",
+    description: ["Pursuing a rigorous academic program in computer science."],
+    icon: <IoCodeWorking />,
+  },
+];
+
+function ExperienceButton({ experience, onClick, isSelected }) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+  // Enhanced button styling for a sleek look
+  return (
+    <Button
+      onClick={onClick}
+      sx={{
+        my: 1,
+        color: isSelected ? theme.palette.primary.main : 'white',
+        borderColor: isSelected ? theme.palette.primary.light : 'white',
+        display: 'flex',
+        justifyContent: matches ? 'flex-start' : 'center',
+        alignItems: 'center',
+        width: '100%',
+        backgroundColor: isSelected ? theme.palette.background.paper : 'transparent',
+        '&:hover': {
+          backgroundColor: isSelected ? theme.palette.background.default : 'rgba(255,255,255,0.2)',
+          borderColor: isSelected ? theme.palette.primary.light : 'white',
+        },
+        transition: 'all 0.3s ease-in-out',
+        borderRadius: '20px', // Rounded corners for buttons
+      }}
+      variant="outlined"
+      startIcon={isSelected ? <Zoom><IoCodeWorking /></Zoom> : null}
+    >
+      {experience.title}
+    </Button>
+  );
+}
 
 function TimelineSection() {
-  const elementStyle = {
-    background: '#4B0082', // Aligning with the AboutSection color scheme
-    color: '#FFFFFF',
-    boxShadow: '0 3px 15px rgba(0,0,0,0.2)'
-  };
+  const [selectedId, setSelectedId] = useState(experiences[0].id);
 
-  const arrowStyle = {
-    borderRight: '7px solid #4B0082'
-  };
-
-  const iconStyle = {
-    background: '#4169E1',
-    color: '#FFFFFF',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
-  };
-
+  // Container adjusted for a futuristic theme
   return (
-    <Container sx={{ py: 8 }}>
-      <Fade bottom>
-        <Typography
-          variant="h4"
-          component="h2"
-          gutterBottom
-          sx={{ color: 'white', fontWeight: 'bold', mb: 6 }}
-        >
-          / Timeline
-        </Typography>
-        <VerticalTimeline>
-          {/* Timeline elements are enhanced for a unified design aesthetic */}
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={elementStyle}
-            contentArrowStyle={arrowStyle}
-            date="January 2024 - present"
-            iconStyle={iconStyle}
-            icon={<IoCodeWorking />}
-          >
-            <h3 className="vertical-timeline-element-title">Computer Engineer Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Castle Rock Research Corporation</h4>
-            <p>Specializing in Artificial Intelligence (AI), Web Development, and C#</p>
-          </VerticalTimelineElement>
+    <Container maxWidth="lg" sx={{ py: 8, color: 'white', overflow: 'hidden' }}>
+      <Typography
+        variant="h4"
+        component="h2"
+        gutterBottom
+        sx={{ fontWeight: 'bold', mb: 6, color: 'white' }}
+      >
+        / Experience
+      </Typography>
 
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={elementStyle}
-          contentArrowStyle={arrowStyle}
-          date="September 2023 - present"
-          iconStyle={iconStyle}
-          icon={<IoCodeWorking />}
-        >
-          <h3 className="vertical-timeline-element-title">Teaching Assistant</h3>
-          <h4 className="vertical-timeline-element-subtitle">University Of Alberta</h4>
-          <p>Assisting in computer science courses, focusing on programming fundamentals.</p>
-        </VerticalTimelineElement>
+      <Grid container spacing={4} justifyContent="center" alignItems="flex-start">
+        <Grid item xs={12} md={3}>
+          {experiences.map((experience) => (
+            <ExperienceButton
+              key={experience.id}
+              experience={experience}
+              onClick={() => setSelectedId(experience.id)}
+              isSelected={selectedId === experience.id}
+            />
+          ))}
+        </Grid>
 
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={elementStyle}
-          contentArrowStyle={arrowStyle}
-          date="May 2023 - August 2023"
-          iconStyle={iconStyle}
-          icon={<IoCodeWorking />}
-        >
-          <h3 className="vertical-timeline-element-title">Full Stack Intern</h3>
-          <h4 className="vertical-timeline-element-subtitle">RentKeepr</h4>
-          <p>Developed full-stack solutions using MongoDB, Node.js, and React.js among other technologies.</p>
-        </VerticalTimelineElement>
-
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          contentStyle={elementStyle}
-          contentArrowStyle={arrowStyle}
-          date="September 2021 - present"
-          iconStyle={iconStyle}
-          icon={<IoCodeWorking />}
-        >
-          <h3 className="vertical-timeline-element-title">BSc Honors in Computer Science</h3>
-          <h4 className="vertical-timeline-element-subtitle">University Of Alberta</h4>
-          <p>Pursuing a rigorous academic and research program in computer science.</p>
-        </VerticalTimelineElement>
-      </VerticalTimeline>
-    </Fade>
+        <Grid item xs={12} md={9} sx={{ height: '600px', overflowY: 'auto', paddingRight: '16px' }}>
+          {experiences.filter((experience) => experience.id === selectedId).map((experience) => (
+            <Fade key={experience.id} duration={700}>
+              <Paper elevation={6} sx={{
+                p: 4,
+                mb: 2,
+                backgroundColor: 'rgba(0,0,0,0.85)',
+                color: 'white',
+                borderRadius: '20px', // Rounded corners for Paper
+                border: '1px solid white',
+                transition: 'transform 0.3s ease-in-out',
+                ':hover': { transform: 'scale(1.02)' }
+              }}>
+                <Typography variant="h5" component="h3" sx={{ mb: 2, fontWeight: 'bold' }}>
+                  {experience.title}
+                </Typography>
+                <Typography variant="h6" sx={{ mb: 1, fontStyle: 'italic' }}>
+                  {experience.subtitle}
+                </Typography>
+                <Typography sx={{ mb: 1, color: 'rgba(255,255,255,0.7)' }}>{experience.date}</Typography>
+                <List sx={{ padding: 0 }}>
+                  {experience.description.map((point, index) => (
+                    <ListItem key={index} sx={{ display: 'list-item', mb: '5px', alignItems: 'flex-start' }}>
+                      <ListItemText primary={point} sx={{ ml: '-16px' }} /> {/* Adjusted for correct bullet alignment */}
+                    </ListItem>
+                  ))}
+                </List>
+              </Paper>
+            </Fade>
+          ))}
+        </Grid>
+      </Grid>
     </Container>
   );
 }

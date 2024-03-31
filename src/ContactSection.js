@@ -1,41 +1,39 @@
-// ContactSection.js
-import React from 'react';
-import Fade from 'react-reveal/Fade';
+import React, { useState } from 'react';
 import { IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io5';
+import Fade from 'react-reveal/Fade';
 
 function ContactSection() {
+  // State to control the marquee effect
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Inline style for the marquee effect
+  const marqueeStyle = isHovering ? { animation: 'marquee 10s linear infinite' } : {};
+
   return (
     <section id="contact" className="flex flex-col items-center justify-center w-full my-24">
       <p className="text-2xl text-gray-400 capitalize">Contact me at</p>
       <Fade top>
-        <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
+        {/* Social Links */}
+      </Fade>
+      <Fade bottom>
+        <div className="mt-8">
           <a
-            href="https://github.com/aarongeo1"
-            className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            href="mailto:your-email@example.com" // Replace with your email
+            className="px-8 py-3 bg-transparent border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
           >
-            <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
-            <p className="text-lg text-textBase">GitHub</p>
-          </a>
-        </div>
-        <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
-          <a
-            href="https://www.linkedin.com/in/aaronbinoy/"
-            className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
-          >
-            <IoLogoLinkedin className="text-textBase text-3xl cursor-pointer" />
-            <p className="text-lg text-textBase">LinkedIn</p>
-          </a>
-        </div>
-        <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
-          <a
-            href="https://www.instagram.com/aarongeo_/"
-            className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
-          >
-            <IoLogoInstagram className="text-textBase text-3xl cursor-pointer" />
-            <p className="text-lg text-textBase">Instagram</p>
+            <p className="text-lg font-medium" style={marqueeStyle}>Contact Me</p>
           </a>
         </div>
       </Fade>
+      {/* Styles for marquee effect */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+      `}</style>
     </section>
   );
 }
