@@ -51,7 +51,6 @@ const experiences = [
       "Collaborate with cross-functional teams to ensure seamless user experiences and application performance.",
       "Write clean, efficient, and well-documented code adhering to industry standards and best practices.",
       "Identify and troubleshoot bugs, performance bottlenecks, and technical issues.",
-      "Continuously learn and stay up-to-date with the latest technologies and frameworks."
     ],
     icon: <IoCodeWorking />,
   },

@@ -28,9 +28,10 @@ function ProjectsSection() {
     show: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
-  // Hover effect to enhance the cyberpunk feel while maintaining sleekness
+  // Adjusted hover effect for white light from borders
   const hoverEffect = {
     scale: 1.05,
+    boxShadow: '0 0 8px 3px white', // White glow effect
     transition: { type: 'spring', stiffness: 300 },
   };
 
@@ -50,10 +51,10 @@ function ProjectsSection() {
             variants={cardAnimation}
             whileHover={hoverEffect}
             className="border border-zinc-800 rounded-lg p-4 w-full max-w-[275px] backdrop-filter backdrop-blur-xl bg-black/20 hover:bg-black/30 transition-all duration-200 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
+            style={{ position: 'relative', zIndex: 1 }} // Ensure the glow effect is visible
           >
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex flex-col">
               <p className="text-lg font-medium uppercase mb-2">{project.name}</p>
-              <motion.img src={project.imageSrc} alt={project.name} className="h-48 object-cover rounded-md mb-4 filter grayscale hover:grayscale-0 transition-all duration-200 ease-in-out" />
               <div className="flex-grow">
                 <p className="text-lg text-gray-300">
                   Technologies
@@ -67,7 +68,7 @@ function ProjectsSection() {
         {displayCount < Projects.length && (
           <div className="w-full flex justify-center mt-8">
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 8px 3px white' }}
               whileTap={{ scale: 0.95 }}
               onClick={showMore}
               className="px-6 py-2 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-700 transition duration-200 ease-in-out"
