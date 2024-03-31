@@ -4,8 +4,20 @@ import { IoCodeWorking } from 'react-icons/io5';
 import { Fade, Zoom } from 'react-reveal';
 
 const experiences = [
-  {
+    {
     id: 1,
+    title: "Full Stack Developer",
+    subtitle: "uniONE",
+    date: "January 2022 - April 2024",
+    description: [
+      "Assist in grading CMPUT 291 coursework, ensuring fair and timely evaluation of assignments.",
+      "Provide comprehensive academic support to students.",
+      "Assist in the development and enhancement of course materials."
+    ],
+    icon: <IoCodeWorking />,
+  },
+  {
+    id: 2,
     title: "Computer Engineer Intern",
     subtitle: "Castle Rock Research Corporation",
     date: "January 2024 - present",
@@ -16,8 +28,9 @@ const experiences = [
     ],
     icon: <IoCodeWorking />,
   },
+
   {
-    id: 2,
+    id: 3,
     title: "Teaching Assistant",
     subtitle: "University Of Alberta",
     date: "September 2023 - January 2024",
@@ -29,7 +42,7 @@ const experiences = [
     icon: <IoCodeWorking />,
   },
   {
-    id: 3,
+    id: 4,
     title: "Full Stack Intern",
     subtitle: "Cove",
     date: "May 2023 - August 2023",
@@ -43,7 +56,7 @@ const experiences = [
     icon: <IoCodeWorking />,
   },
   {
-    id: 4,
+    id: 5,
     title: "BSc Computer Science",
     subtitle: "University Of Alberta",
     date: "September 2021 - present",
