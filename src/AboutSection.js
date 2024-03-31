@@ -19,6 +19,7 @@ const SkillsContainer = styled(motion.div)({
 });
 
 const SkillChip = styled('div')({
+  fontFamily: "Orbitron, sans-serif",
   display: 'inline-block',
   padding: '0 7px',
   fontSize: '22px',
@@ -28,12 +29,12 @@ const SkillChip = styled('div')({
 // Framer Motion animation settings
 const marqueeVariants = {
   animate: {
-    x: [0, -1035], // You might need to adjust this based on your content width
+    x: [0, -2800], // You might need to adjust this based on your content width
     transition: {
       x: {
         repeat: Infinity,
         repeatType: "loop",
-        duration: 10,
+        duration: 100,
         ease: "linear",
       },
     },
@@ -41,7 +42,7 @@ const marqueeVariants = {
 };
 
 function AboutSection() {
-  const skills = ['Python', 'React.js', 'Node.js', 'MySQL', 'C++', 'Java', 'CSS', 'HTML', 'SQLite', 'AWS','JavaScript', 'TypeScript', 'Git', 'GitHub', 'Docker',  'Cypress', 'Machine Learning'];
+  const skills = ['Python', 'React.js', 'Node.js', 'MySQL', 'C++', 'Java', 'CSS', 'HTML', 'SQLite', 'AWS','JavaScript', 'TypeScript', 'Git', 'GitHub', 'Docker',  'Cypress','Python', 'React.js', 'Node.js', 'MySQL', 'C++', 'Java', 'CSS', 'HTML', 'SQLite', 'AWS','JavaScript', 'TypeScript', 'Git', 'GitHub', 'Docker',  'Cypress'];
   return (
     <Container sx={{ py: 8 }}>
       <Fade bottom>
@@ -49,7 +50,7 @@ function AboutSection() {
           variant="h4"
           component="h2"
           gutterBottom
-          sx={{ color: 'white', fontWeight: 'bold', mb: 6 }}
+          sx={{ color: 'white', fontWeight: 'bold', mb: 6}}
         >
           / About Me
         </Typography>

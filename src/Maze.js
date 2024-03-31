@@ -240,15 +240,15 @@ function mazeGenerator(p5) {
     drawPixelatedCharacter(whiteDot.i * w, whiteDot.j * w, w);
 }
 
-let legMove = false; // Global variable to toggle leg movement
+let legMove = false; // Variable to simulate walking movement
 
 function drawPixelatedCharacter(x, y, w) {
     // Adjust proportions for a cuter look
-    let headDiameter = w * 0.6; // Larger head for cuteness
+    let headDiameter = w * 0.7; // Larger head for cuteness
     let bodyWidth = w * 0.5;
-    let bodyHeight = w * 0.25; // Shorter body to emphasize head size
-    let legWidth = w * 0.15;
-    let legHeight = w * 0.2; // Slightly larger legs for emphasis on movement
+    let bodyHeight = w * 0.3; // Shorter body to emphasize head size
+    let legWidth = w * 0.2;
+    let legHeight = w * 0.15; // Slightly larger legs for emphasis on movement
 
     // Colors
     p5.fill(255); // White for the character
@@ -284,10 +284,6 @@ function drawPixelatedCharacter(x, y, w) {
     // Remove stroke for other drawings
     p5.noStroke();
 }
-
-
-
-
 
 
   p5.draw = () => {
