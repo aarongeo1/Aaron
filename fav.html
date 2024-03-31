@@ -8,69 +8,70 @@
 <body>
     <canvas id="faviconCanvas" width="32" height="32"></canvas>
 
-    <script>let legMove = false; // Variable to simulate walking movement
+    <script>
+        let legMove = false; // Variable to simulate walking movement
 
         // Get canvas context
         let canvas = document.getElementById('faviconCanvas');
         let ctx = canvas.getContext('2d');
-        
+
         // Call draw function
         drawPixelatedCharacter(0, 0, 32);
-        
+
         // Define the drawPixelatedCharacter function
         function drawPixelatedCharacter(x, y, w) {
             // Adjust proportions for a cuter look
             let headDiameter = w * 0.7; // Larger head for cuteness
             let bodyWidth = w * 0.5;
             let bodyHeight = w * 0.3; // Shorter body to emphasize head size
-            let legWidth = w * 0.1;
+            let legWidth = w * 0.2;
             let legHeight = w * 0.15; // Slightly larger legs for emphasis on movement
-        
+
             // Colors
             ctx.fillStyle = '#ffffff'; // White for the character
             ctx.strokeStyle = '#000000'; // Black outline for features
-        
+
             // Head - Larger and rounder for a cuter appearance
             ctx.beginPath();
             ctx.arc(x + w / 2, y + w / 3, headDiameter / 2, 0, Math.PI * 2);
             ctx.fill();
             ctx.stroke();
-        
+
             // Simple face - Eyes and a smile can add a lot of personality
             ctx.fillStyle = '#000000'; // Black for eyes and smile
             ctx.beginPath();
             ctx.arc(x + w / 2 - headDiameter / 4, y + w / 3, w * 0.05, 0, Math.PI * 2); // Left eye
             ctx.arc(x + w / 2 + headDiameter / 4, y + w / 3, w * 0.05, 0, Math.PI * 2); // Right eye
             ctx.fill();
-        
+
             ctx.beginPath();
             ctx.arc(x + w / 2, y + w / 3 + headDiameter / 8, w * 0.1, 0, Math.PI);
             ctx.stroke();
-        
+
             ctx.fillStyle = '#ffffff'; // Reset fill to white for the body
             // Body - Positioned under the head, smaller than the head to maintain cuteness
             ctx.fillRect(x + w / 2 - bodyWidth / 2, y + w / 2, bodyWidth, bodyHeight);
-        
-            // Legs - Use rectangles for a simple look, with movement
-            ctx.fillStyle = '#000000'; // Black for legs
+
+            // Legs - Use ellipses for a softer look, with movement
             if (legMove) {
                 // Walking position
-                ctx.fillRect(x + w / 2 - bodyWidth / 2 - legWidth, y + w - legHeight, legWidth, legHeight); // Left back leg
-                ctx.fillRect(x + w / 2 + bodyWidth / 2, y + w - legHeight, legWidth, legHeight); // Right back leg
-                ctx.fillRect(x + w / 2 - bodyWidth / 2 - legWidth, y + w, legWidth, legHeight); // Left front leg
-                ctx.fillRect(x + w / 2 + bodyWidth / 2, y + w, legWidth, legHeight); // Right front leg
+                ctx.beginPath();
+                ctx.ellipse(x + w / 2 - bodyWidth / 4, y + w - legHeight / 2, legWidth / 2, legHeight / 2, 0, 0, Math.PI * 2); // Left leg
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.ellipse(x + w / 2 + bodyWidth / 4, y + w - legHeight / 2, legWidth / 2, legHeight / 2, 0, 0, Math.PI * 2); // Right leg
+                ctx.fill();
             } else {
                 // Standing position
-                ctx.fillRect(x + w / 2 - bodyWidth / 2 - legWidth, y + w - legHeight, legWidth, legHeight); // Left back leg
-                ctx.fillRect(x + w / 2 + bodyWidth / 2, y + w - legHeight, legWidth, legHeight); // Right back leg
-                ctx.fillRect(x + w / 2 - bodyWidth / 2 - legWidth, y + w - legHeight, legWidth, legHeight); // Left front leg
-                ctx.fillRect(x + w / 2 + bodyWidth / 2, y + w - legHeight, legWidth, legHeight); // Right front leg
+                ctx.beginPath();
+                ctx.ellipse(x + w / 2, y + w - legHeight / 2, legWidth / 2, legHeight / 2, 0, 0, Math.PI * 2); // Center leg
+                ctx.fill();
             }
-        
+
             // Toggle legMove for the next frame to simulate walking
             legMove = !legMove;
         }
-        
     </script>
 </body>
 </html>
