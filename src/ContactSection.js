@@ -1,7 +1,6 @@
-// ContactSection.js
 import React from 'react';
-import Fade from 'react-reveal/Fade';
 import { IoLogoGithub, IoLogoInstagram, IoLogoLinkedin } from 'react-icons/io5';
+import Fade from 'react-reveal/Fade';
 
 function ContactSection() {
   return (
@@ -11,28 +10,29 @@ function ContactSection() {
         <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
           <a
             href="https://github.com/aarongeo1"
-            className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            className="px-3 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            target="_blank" rel="noopener noreferrer"
           >
-            <IoLogoGithub className="text-textBase text-3xl cursor-pointer" />
-            <p className="text-lg text-textBase">GitHub</p>
+            <IoLogoGithub className="text-3xl" />
+            <p className="text-lg">GitHub</p>
           </a>
-        </div>
-        <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
           <a
             href="https://www.linkedin.com/in/aaronbinoy/"
-            className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            className="px-3 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            target="_blank" rel="noopener noreferrer"
           >
-            <IoLogoLinkedin className="text-textBase text-3xl cursor-pointer" />
-            <p className="text-lg text-textBase">LinkedIn</p>
+            <IoLogoLinkedin className="text-3xl" />
+            <p className="text-lg">LinkedIn</p>
           </a>
         </div>
-        <div className="flex items-center justify-center w-full my-4 flex-wrap gap-4">
+      </Fade>
+      <Fade bottom>
+        <div className="mt-8">
           <a
-            href="https://www.instagram.com/aarongeo_/"
-            className="w-full md:w-auto px-3 md:px-8 py-5 border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
+            href="mailto:aaronforsocial@gmail.com" // Replace with your email
+            className="px-8 py-3 bg-transparent border border-zinc-800 rounded-2xl hover:border-purple-500 ease-in-out cursor-pointer flex items-center justify-center gap-3"
           >
-            <IoLogoInstagram className="text-textBase text-3xl cursor-pointer" />
-            <p className="text-lg text-textBase">Instagram</p>
+            <p className="text-lg font-medium">Contact Me</p>
           </a>
         </div>
       </Fade>

@@ -93,7 +93,11 @@ function App() {
   const isMobile = screenWidth < 768;
   const titleFontSize = isMobile ? '5xl' : '8xl'; // Adjust sizes as needed
   const subTextFontSize = isMobile ? 'lg' : 'xl';
-  
+  const calculateFontSize = () => {
+    if (screenWidth > 1024) return '5rem'; // Large screens
+    if (screenWidth > 768) return '4rem'; // Medium screens
+    return '2rem'; // Small screens
+  };
   return (
     <AnimatePresence initial={false}>
       <div className="flex w-screen min-h-screen flex-col items-center justify-center relative bg-black text-white pb-20 overflow-hidden">
@@ -104,11 +108,12 @@ function App() {
         <div className="relative w-full h-screen z-10 flex flex-col justify-center items-center text-center">
           <TypingText text="Hi, I am Aaron Binoy" speed={100} />
           <div className="mt-4" style={{ fontFamily: "Orbitron, sans-serif", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <motion.h1
+          <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className={`text-${titleFontSize} font-bold uppercase`}
+              style={{ fontSize: calculateFontSize() }}
+              className="font-bold uppercase"
             >
               CODER
             </motion.h1>
@@ -124,10 +129,12 @@ function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
-              className={`text-${titleFontSize} font-bold uppercase`}
+              style={{ fontSize: calculateFontSize() }}
+              className="font-bold uppercase"
             >
               DEVELOPER
             </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
