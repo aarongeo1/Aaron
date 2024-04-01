@@ -1,12 +1,82 @@
 import React, { Suspense, useState, useEffect, useRef } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './NavBar';
 import AboutSection from './AboutSection';
 import TimelineSection from './Timeline';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 import Maze from './Maze';
-import { motion } from 'framer-motion';
+
+const CustomCursor = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [hidden, setHidden] = useState(false);
+  const [click, setClick] = useState(false);
+
+  useEffect(() => {
+    const addEventListeners = () => {
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseenter', onMouseEnter);
+      document.addEventListener('mouseleave', onMouseLeave);
+      document.addEventListener('mousedown', onMouseDown);
+      document.addEventListener('mouseup', onMouseUp);
+    };
+
+    const removeEventListeners = () => {
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseenter', onMouseEnter);
+      document.removeEventListener('mouseleave', onMouseLeave);
+      document.removeEventListener('mousedown', onMouseDown);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    const onMouseMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const onMouseEnter = () => {
+      setHidden(false);
+    };
+
+    const onMouseLeave = () => {
+      setHidden(true);
+    };
+
+    const onMouseDown = () => {
+      setClick(true);
+    };
+
+    const onMouseUp = () => {
+      setClick(false);
+    };
+
+    addEventListeners();
+    return () => removeEventListeners();
+  }, []);
+
+  return (
+    <div
+      style={{
+        zIndex: 9999,
+        position: 'fixed',
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        opacity: hidden ? 0 : 1,
+        backgroundColor: click ? '#FFFFFF' : 'transparent', // Using white for the click to keep the B&W theme
+        border: '2px solid white', // Keeping the retro-style border color
+        borderRadius: '50%', // Circle shape for a simplistic retro feel
+        width: '20px', // Size of the cursor
+        height: '20px', // Size of the cursor
+        transition: 'transform 0.2s ease-out, background-color 0.2s', // Smooth transitions for dynamic effect
+        // Adding a shadow for a more futuristic feel
+        boxShadow: click ? '0 0 15px #FFFFFF' : '0 0 8px #FFFFFF',
+      }}
+    />
+  );
+};
+
+
 function TypingText({ text, speed }) {
   const [displayText, setDisplayText] = useState('');
   const [cursorVisible, setCursorVisible] = useState(true);
@@ -99,7 +169,9 @@ function App() {
     return '2rem'; // Small screens
   };
   return (
+    <div style={{ cursor: 'none' }}>
     <AnimatePresence initial={false}>
+       <CustomCursor />
       <div className="flex w-screen min-h-screen flex-col items-center justify-center relative bg-black text-white pb-20 overflow-hidden">
         <Navbar />
         <div className="fixed top-0 left-0 w-full h-screen" style={mazeStyle} id="Home">
@@ -115,7 +187,7 @@ function App() {
               style={{ fontSize: calculateFontSize() }}
               className="font-bold uppercase"
             >
-              CODER
+              DEVELOPER
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0 }}
@@ -132,7 +204,7 @@ function App() {
               style={{ fontSize: calculateFontSize() }}
               className="font-bold uppercase"
             >
-              DEVELOPER
+              PROGRAMMER
             </motion.h1>
 
             <motion.p
@@ -150,7 +222,7 @@ function App() {
                   margin: '0 auto',
               }}
             >
-              A Software Developer based in Edmonton, Alberta. Passionate about coding, Machine Learning, and Full Stack Development.
+              A Software Developer based in Edmonton, Alberta. Passionate about Coding, Machine Learning, and Full Stack Development.
             </motion.p>
           </div>
         </div>
@@ -162,6 +234,7 @@ function App() {
         </main>
       </div>
     </AnimatePresence>
+    </div>
   );
 }
 

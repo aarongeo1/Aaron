@@ -97,6 +97,7 @@ function mazeGenerator(p5) {
     this.j = j;
     this.walls = [true, true, true, true]; // top, right, bottom, left
     this.visited = false;
+    this.isAnimating = 0; // Duration of animation in frames
 
     this.checkNeighbors = function() {
       let neighbors = [];
@@ -131,6 +132,20 @@ function mazeGenerator(p5) {
           p5.noStroke();
           p5.fill(0);
           p5.rect(x, y, w, w);
+      }
+      if (this.isAnimating > 0) {
+        p5.noStroke();
+        p5.fill(255, 204, 0); // Yellow color for the glow
+        p5.ellipse(x + w / 2, y + w / 2, w, w); // Draw a larger ellipse for the glow
+        this.isAnimating--;
+    }
+
+
+      if (this.skill && this.isAnimating > 0) {
+        // Enhance the appearance for animation
+        p5.fill(255, 204, 0); // Example glowing effect
+        p5.ellipse(this.i * w + w / 2, this.j * w + w / 2, w * 0.75);
+        this.isAnimating--; // Decrease the animation counter each frame
       }
       // Display skill text with enhanced floating effect
       if (this.skill) {
@@ -222,7 +237,10 @@ function mazeGenerator(p5) {
             break;
         }
     }
-
+    if (whiteDot.currentCell.skill) {
+      whiteDot.currentCell.isAnimating = 30; // Animate for 30 frames
+      // Proceed to remove the skill or handle the event as necessary
+    }
     // If no skill was found, continue moving towards the next targeted skill
     if (!foundSkill && currentSkillIndex < skillPositions.length) {
         let targetSkill = skillPositions[currentSkillIndex];

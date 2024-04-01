@@ -11,6 +11,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
+import AboutSection from './AboutSection';
+import TimelineSection from './Timeline';
+import ProjectsSection from './ProjectsSection';
 
 function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -53,8 +56,9 @@ function Navbar() {
             AARON BINOY
           </Typography>
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
-            <Button href="#Home" sx={buttonStyle}>Home</Button>
+            <Button href="#" sx={buttonStyle}>Home</Button>
             <Button href="#About" sx={buttonStyle}>About</Button>
+            <Button href="#Experience" sx={buttonStyle}>Experience</Button>
             <Button href="#Projects" sx={buttonStyle}>Projects</Button>
             <IconButton href="https://www.linkedin.com/in/aaronbinoy/" sx={iconStyle}>
               <LinkedInIcon />

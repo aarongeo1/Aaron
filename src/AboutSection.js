@@ -44,7 +44,7 @@ const marqueeVariants = {
 function AboutSection() {
   const skills = ['Python', 'React.js', 'Node.js', 'MySQL', 'C++', 'Java', 'CSS', 'HTML', 'SQLite', 'AWS','JavaScript', 'TypeScript', 'Git', 'GitHub', 'Docker',  'Cypress','Python', 'React.js', 'Node.js', 'MySQL', 'C++', 'Java', 'CSS', 'HTML', 'SQLite', 'AWS','JavaScript', 'TypeScript', 'Git', 'GitHub', 'Docker',  'Cypress'];
   return (
-    <Container sx={{ py: 8 }}>
+    <Container id = "About" sx={{ py: 8 }}>
       <Fade bottom>
         <Typography
           variant="h4"

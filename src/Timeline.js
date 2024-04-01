@@ -101,7 +101,7 @@ function TimelineSection() {
 
   // Container adjusted for a futuristic theme
   return (
-    <Container maxWidth="lg" sx={{ py: 8, color: 'white', overflow: 'hidden' }}>
+    <Container id = "Experience" maxWidth="lg" sx={{ py: 8, color: 'white', overflow: 'hidden' }}>
       <Typography
         variant="h4"
         component="h2"
