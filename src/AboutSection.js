@@ -11,8 +11,6 @@ const ConveyorBeltContainer = styled('div')({
   width: '100%',
   position: 'relative',
 });
-
-// Styled div for your skills, adjusted for Framer Motion
 const SkillsContainer = styled(motion.div)({
   display: 'inline-block',
   whiteSpace: 'nowrap',
@@ -29,7 +27,7 @@ const SkillChip = styled('div')({
 // Framer Motion animation settings
 const marqueeVariants = {
   animate: {
-    x: [0, -2800], // You might need to adjust this based on your content width
+    x: [0, -2800],
     transition: {
       x: {
         repeat: Infinity,
@@ -70,7 +68,7 @@ function AboutSection() {
           </Grid>
           <Grid item xs={12} md={5}>
             <Typography variant="body1" sx={{ color: 'white', textAlign: 'justify', mb: 4 }}>
-              I am currently doing my undergrad in BSc Honors Computer Science @ The University of Alberta. I like to learn new technologies and work on projects that challenge me. I am a full stack developer who aspires to be a Machine Learning Engineer in the future. Outisde of coding, I like to play video games and play basketball.
+              I am currently doing my undergrad in BSc Honors Computer Science @ The University of Alberta. I like to learn new technologies and work on projects that challenge me. I am a full stack developer who aspires to be a Machine Learning Engineer in the future. Outside of coding, I like to play video games and play basketball.
             </Typography>
           </Grid>
         </Grid>
@@ -82,7 +80,6 @@ function AboutSection() {
             {skills.map((skill, index) => (
               <SkillChip key={index}>{skill}</SkillChip>
             ))}
-            {/* Repeat the skills to fill the space and enable seamless looping */}
             {skills.map((skill, index) => (
               <SkillChip key={`duplicate-${index}`}>{skill}</SkillChip>
             ))}
