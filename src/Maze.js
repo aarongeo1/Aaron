@@ -3,7 +3,7 @@ import { ReactP5Wrapper } from 'react-p5-wrapper';
 import  { useEffect, useRef } from 'react';
 function mazeGenerator(p5) {
   let cols, rows;
-  let w; // Cell width for maze size, to be dynamically set
+  let w; 
   let grid = [];
   let skills = ['Python', 'SQL', 'C++','JavaScript', 'Java', 'React', 'Node','Figma', 'MongoDB', 'MySQL', 'Pandas', 'Scikit Learn', 'Android Studio', 'HTML', 'CSS', 'SQLite', 'Git', 'GitHub', 'Linux', 'Windows', 'MacOS', 'VS Code', 'Visual Studio',  'PyCharm', 'Jupyter', 'Google Colab',  'Firebase', 'AWS',  'Docker', 'Kubernetes', 'Jenkins', 'GitLab CI', 'REST APIs', 'OAuth', 'JWT', 'Express', 'Flask', 'Django', 'Vue.js', 'Angular','Cypress', 'React Testing Library', 'JUnit'];
   let skillPositions = [];
@@ -13,13 +13,13 @@ function mazeGenerator(p5) {
   let currentSkillIndex = 0;
 
   p5.setup = () => {
-    // Determine breakpoints and set maze dimensions
+
     const screenWidth = p5.windowWidth;
     const screenHeight = p5.windowHeight;
-    if (screenWidth < 600) { // Example breakpoint for mobile
+    if (screenWidth < 600) { 
         cols = 9;
         rows = 18;
-    } else if (screenWidth < 1200) { // Example breakpoint for tablets
+    } else if (screenWidth < 1200) { 
         cols = 20;
         rows = 18;
     } else { // Default for larger screens
@@ -33,19 +33,17 @@ function mazeGenerator(p5) {
         Math.floor((screenHeight - 100) / rows)
     );
 
-    // Set canvas size based on calculated dimensions
     const canvasWidth = cols * w - 10; // Adjusted to add a border
     const canvasHeight = rows * w - 10; // Adjusted to add a border
     p5.createCanvas(canvasWidth, canvasHeight);
     p5.frameRate(5);
     p5.background(0);
 
-    // Draw a border for the canvas
-    p5.stroke(255, 204, 0); // Bright yellow color for visibility
-    p5.strokeWeight(4); // Thicker stroke for the border
+    p5.stroke(255, 204, 0); 
+    p5.strokeWeight(4); 
     p5.noFill();
     p5.rect(0, 0, canvasWidth, canvasHeight);
-      // Initialize grid and maze generation
+ 
       for (let j = 0; j < rows; j++) {
           for (let i = 0; i < cols; i++) {
               let cell = new Cell(i, j);
@@ -55,7 +53,7 @@ function mazeGenerator(p5) {
 
 
         current = grid[0];
-        whiteDot.currentCell = current; // Align whiteDot's current cell
+        whiteDot.currentCell = current; 
         current.visited = true;
 
         do {
@@ -122,8 +120,8 @@ function mazeGenerator(p5) {
     this.show = function() {
       let x = this.i * w;
       let y = this.j * w;
-      p5.stroke(120); // Darker stroke for a subtle look
-      p5.strokeWeight(2); // Thicker walls
+      p5.stroke(120); 
+      p5.strokeWeight(2); 
       if (this.walls[0]) p5.line(x, y, x + w, y);
       if (this.walls[1]) p5.line(x + w, y, x + w, y + w);
       if (this.walls[2]) p5.line(x + w, y + w, x, y + w);
@@ -135,8 +133,8 @@ function mazeGenerator(p5) {
       }
       if (this.isAnimating > 0) {
         p5.noStroke();
-        p5.fill(255, 204, 0); // Yellow color for the glow
-        p5.ellipse(x + w / 2, y + w / 2, w, w); // Draw a larger ellipse for the glow
+        p5.fill(255, 204, 0); 
+        p5.ellipse(x + w / 2, y + w / 2, w, w); 
         this.isAnimating--;
     }
 

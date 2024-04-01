@@ -36,7 +36,6 @@ function ProjectsSection() {
         </motion.section>
         {displayCount < Projects.length && (
           <div className="flex justify-center mt-8">
-            {/* Custom "Show More" button with enhanced visibility and alignment, placed outside the grid */}
             <motion.div 
               whileHover={{ scale: 1.05, boxShadow: '0 0 8px 3px #FFFFFF' }}
               whileTap={{ scale: 0.95 }}

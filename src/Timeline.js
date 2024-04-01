@@ -67,7 +67,6 @@ function ExperienceButton({ experience, onClick, isSelected }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
 
-  // Enhanced button styling for a sleek look
   return (
     <Button
       onClick={onClick}
@@ -85,7 +84,7 @@ function ExperienceButton({ experience, onClick, isSelected }) {
           borderColor: isSelected ? theme.palette.primary.light : 'white',
         },
         transition: 'all 0.3s ease-in-out',
-        borderRadius: '20px', // Rounded corners for buttons
+        borderRadius: '20px', 
       }}
       variant="outlined"
       startIcon={isSelected ? <Zoom><IoCodeWorking /></Zoom> : null}
@@ -98,7 +97,6 @@ function ExperienceButton({ experience, onClick, isSelected }) {
 function TimelineSection() {
   const [selectedId, setSelectedId] = useState(experiences[0].id);
 
-  // Container adjusted for a futuristic theme
   return (
     <Container id = "Experience" maxWidth="lg" sx={{ py: 8, color: 'white', overflow: 'hidden' }}>
       <Typography
@@ -145,7 +143,7 @@ function TimelineSection() {
                 <List sx={{ padding: 0 }}>
                   {experience.description.map((point, index) => (
                     <ListItem key={index} sx={{ display: 'list-item', mb: '5px', alignItems: 'flex-start' }}>
-                      <ListItemText primary={point} sx={{ ml: '-16px' }} /> {/* Adjusted for correct bullet alignment */}
+                      <ListItemText primary={point} sx={{ ml: '-16px' }} /> 
                     </ListItem>
                   ))}
                 </List>

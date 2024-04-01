@@ -63,13 +63,12 @@ const CustomCursor = () => {
         transform: 'translate(-50%, -50%)',
         pointerEvents: 'none',
         opacity: hidden ? 0 : 1,
-        backgroundColor: click ? '#FFFFFF' : 'transparent', // Using white for the click to keep the B&W theme
-        border: '2px solid white', // Keeping the retro-style border color
-        borderRadius: '50%', // Circle shape for a simplistic retro feel
-        width: '20px', // Size of the cursor
-        height: '20px', // Size of the cursor
-        transition: 'transform 0.2s ease-out, background-color 0.2s', // Smooth transitions for dynamic effect
-        // Adding a shadow for a more futuristic feel
+        backgroundColor: click ? '#FFFFFF' : 'transparent', 
+        border: '2px solid white', 
+        borderRadius: '50%', 
+        width: '20px', 
+        height: '20px', 
+        transition: 'transform 0.2s ease-out, background-color 0.2s', 
         boxShadow: click ? '0 0 15px #FFFFFF' : '0 0 8px #FFFFFF',
       }}
     />
@@ -154,7 +153,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Perform an initial style update based on the scroll position
+    handleScroll(); 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   

@@ -11,19 +11,17 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
-import AboutSection from './AboutSection';
-import TimelineSection from './Timeline';
-import ProjectsSection from './ProjectsSection';
+
 
 function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const theme = useTheme(); // Use theme for responsive breakpoints
+  const theme = useTheme(); 
 
   const appBarStyle = {
-    backgroundColor: '#121212', // Dark theme for futuristic look
-    borderBottom: '1px solid neon', // Neon for a retro-futuristic vibe
+    backgroundColor: '#121212', 
+    borderBottom: '1px solid neon', 
     boxShadow: 'none',
-    fontFamily: 'Press Start 2P', // Retro pixelated font
+    fontFamily: 'Press Start 2P',
   };
   
   const buttonStyle = {
@@ -31,12 +29,12 @@ function Navbar() {
     mx: 1.5,
     color: 'white',
     fontWeight: 'bold',
-    fontFamily: 'Press Start 2P', // Apply pixelated font for buttons
-    fontSize: '0.625rem', // Smaller font size to compensate for the Press Start 2P's larger appearance
+    fontFamily: 'Press Start 2P',
+    fontSize: '0.625rem', 
     '&:hover': {
       backgroundColor: 'rgba(255,255,255,0.08)',
       transition: 'background-color 0.3s ease',
-      transform: 'scale(1.05)', // Scale effect on hover
+      transform: 'scale(1.05)', 
     },
   };
 
@@ -91,7 +89,7 @@ function Navbar() {
           onClick={() => setIsDrawerOpen(false)}
           onKeyDown={() => setIsDrawerOpen(false)}
         >
-            <Button href="#Home" sx={buttonStyle}>Home</Button>
+            <Button href="#" sx={buttonStyle}>Home</Button>
             <Button href="#About" sx={buttonStyle}>About</Button>
             <Button href="#Experience" sx={buttonStyle}>Experience</Button>
             <Button href="#Projects" sx={buttonStyle}>Projects</Button>

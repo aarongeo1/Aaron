@@ -4,13 +4,10 @@ import { FaRobot, FaStackOverflow, FaLaptopCode, FaChalkboardTeacher, FaPython }
 import { motion } from 'framer-motion';
 
 function ContactSection() {
-  // Define social links and icons in an array for easier mapping
   const socialLinks = [
     { href: "https://github.com/aarongeo1", icon: IoLogoGithub, label: "GitHub" },
     { href: "https://www.linkedin.com/in/aaronbinoy/", icon: IoLogoLinkedin, label: "LinkedIn" },
   ];
-
-  // Specialties icons and labels
   const specialties = [
     { Icon: FaStackOverflow, label: "Full Stack Development" },
     { Icon: FaLaptopCode, label: "Web Dev" },
