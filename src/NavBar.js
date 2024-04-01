@@ -93,6 +93,7 @@ function Navbar() {
         >
             <Button href="#Home" sx={buttonStyle}>Home</Button>
             <Button href="#About" sx={buttonStyle}>About</Button>
+            <Button href="#Experience" sx={buttonStyle}>Experience</Button>
             <Button href="#Projects" sx={buttonStyle}>Projects</Button>
           <IconButton href="https://www.linkedin.com/in/aaronbinoy/" sx={{ ...iconStyle, m: 2 }}>
             <LinkedInIcon />
