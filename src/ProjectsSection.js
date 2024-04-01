@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IoLogoGithub } from 'react-icons/io5';
 import { Projects } from './data';
-import { Container, Typography, Button, Grid, Paper, List, ListItem, ListItemText, useTheme, useMediaQuery } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 
-const INITIAL_DISPLAY_COUNT = 9;
+const INITIAL_DISPLAY_COUNT = 3;
 
 function ProjectsSection() {
   const [displayCount, setDisplayCount] = useState(INITIAL_DISPLAY_COUNT);
@@ -33,14 +33,21 @@ function ProjectsSection() {
               </a>
             </motion.div>
           ))}
-          {displayCount < Projects.length && (
-            <div className="w-full flex justify-center mt-8">
-              <Button onClick={showMore} variant="contained" color="primary">
-                Show More
-              </Button>
-            </div>
-          )}
         </motion.section>
+        {displayCount < Projects.length && (
+          <div className="flex justify-center mt-8">
+            {/* Custom "Show More" button with enhanced visibility and alignment, placed outside the grid */}
+            <motion.div 
+              whileHover={{ scale: 1.05, boxShadow: '0 0 8px 3px #FFFFFF' }}
+              whileTap={{ scale: 0.95 }}
+              onClick={showMore}
+              className="px-6 py-2 bg-white text-black rounded-lg shadow-lg cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out"
+              style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)' }}
+            >
+              Show More
+            </motion.div>
+          </div>
+        )}
       </Container>
     </>
   );

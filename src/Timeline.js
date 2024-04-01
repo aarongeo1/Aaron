@@ -10,9 +10,9 @@ const experiences = [
     subtitle: "uniONE",
     date: "January 2022 - April 2024",
     description: [
-      "Assist in grading CMPUT 291 coursework, ensuring fair and timely evaluation of assignments.",
-      "Provide comprehensive academic support to students.",
-      "Assist in the development and enhancement of course materials."
+      "Developed a robust website and integrated analytics dashboard for uniONE in CMPUT 401.",
+      "Used React.js, Node.js and MUI to create a responsive and user-friendly interface.",
+      "Employed a Test-Driven Development (TDD) methodology for optimized performance and reliability"
     ],
     icon: <IoCodeWorking />,
   },
@@ -22,13 +22,12 @@ const experiences = [
     subtitle: "Castle Rock Research Corporation",
     date: "January 2024 - present",
     description: [
-      "Create a custom GPT model and integrate OpenAI's GPT API into Solaro's platform, leveraging Python and Flask.",
-      "Conduct extensive testing, debugging, and optimization to enhance the chat tutor responses.",
-      "Implement an AI-driven chat tutor, significantly aiding students with personalized academic support."
+      "Created a custom GPT model and integrate OpenAI's GPT API into Solaro's platform, leveraging Python and Flask.",
+      "Conducted extensive testing, debugging, and optimization to enhance the chat tutor responses.",
+      "Implemented an AI-driven chat tutor, significantly aiding students with personalized academic support."
     ],
     icon: <IoCodeWorking />,
   },
-
   {
     id: 3,
     title: "Teaching Assistant",
@@ -59,7 +58,7 @@ const experiences = [
     title: "BSc Computer Science",
     subtitle: "University Of Alberta",
     date: "September 2021 - present",
-    description: ["Pursuing a rigorous academic program in computer science."],
+    description: ["Pursuing a Honors Bachelors Degree in Computer Science."],
     icon: <IoCodeWorking />,
   },
 ];
