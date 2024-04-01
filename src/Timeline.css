@@ -1,6 +1,6 @@
 /* TimelineSection Custom Styles */
 .react-vertical-timeline-component .vertical-timeline-element--work .vertical-timeline-element-content {
-    background: #fff; /* Light background for a cleaner look */
+    background: #fff;
     color: #333; /* Dark text for contrast */
     box-shadow: 0 3px 15px rgba(0,0,0,0.2); /* Subtle shadow for depth */
   }

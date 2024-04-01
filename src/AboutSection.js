@@ -68,9 +68,9 @@ function AboutSection() {
               <Avatar src={Aaron} alt="Aaron" variant="rounded" sx={{ width: 275, height: 340, border: '3px solid #777', boxShadow: '0 4px 10px 0 rgba(0,0,0,0.5)' }} />
             </Box>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <Typography variant="body1" sx={{ color: 'white', textAlign: 'justify', mb: 4 }}>
-              I am currently a BSc Honors Computer Science student at the University of Alberta. Alongside my academic pursuits, I find solace and inspiration in capturing the beauty of nature through photography. While my lens allows me to preserve fleeting moments in time, I also embrace the contrasting world of gaming. Immersed in virtual realms, I seek exhilaration and challenge through interactive experiences. Balancing the realms of technology and creativity, I am continuously honing my skills as both a computer scientist and an artist.
+              I am currently doing my undergrad in BSc Honors Computer Science @ The University of Alberta. I like to learn new technologies and work on projects that challenge me. I am a full stack developer who aspires to be a Machine Learning Engineer in the future. Outisde of coding, I like to play video games and play basketball.
             </Typography>
           </Grid>
         </Grid>
